@@ -1,0 +1,1 @@
+Utworzyæ w phpmyadmin now¹ baze danych o nazwie 'login' i importowaæ tam uzytkownicy.sql

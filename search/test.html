@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>ArtistInfo</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+ <link rel="stylesheet" href="finder_style.css">
+</head>
+<body>
+
+
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<!-- 
+<script type="text/javascript">
+
+
+
+
+	var url='http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=';
+	var query0;
+
+	$.getJSON(url, function(json){
+		console.log(json);
+	});
+
+</script>
+-->
+
+       <script>
+
+    function search(){
+    		
+       var value = document.getElementById('readme').value;
+       var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          
+       console.log(url);
+
+       $.getJSON(url,function(json){
+ console.log(json); 
+
+ 		 document.getElementById('heading').innerHTML = "TOP 5 ALBUMS";
+
+ 		for (i in json.topalbums.album){
+ 			if (i<5){
+        $("#results").append('<p class=albumName>' + '"' + json.topalbums.album[i].name+'" '+ ' </p> ');
+        $("#results").append('<p>'+'<img class="miniature" src="'+json.topalbums.album[i].image[3]["#text"]+ '"  />'+'</p>');		    }
+        else {break;}}   
+   });
+    	var url1="http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&format=json&api_key=8757c232e88c68d602c6e22e4924cf03&artist=" + value;
+
+    	$.getJSON(url1,function(json){    		
+
+    		$("#info").append(json.artist.bio.summary);
+    	}
+    );
+}
+
+    </script>
+
+
+
+    
+
+
+
+
+<div class="input-container">
+	<input id="readme" onfocus="this.value=''" class="input">
+    <input type="submit"  onClick="search()" value="Search" class="btnsearch">
+</div>
+
+<div class="bioinfo">
+
+<p id=info></p>
+
+</div>
+
+
+
+<div class="album-info">	
+	
+	<p id="heading" class="heading_style"></p>
+	<p id="results"></p>
+	
+</div>
+
+

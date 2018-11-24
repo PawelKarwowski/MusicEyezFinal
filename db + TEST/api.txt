@@ -1,0 +1,2 @@
+apiKey: c46749239cc8ed007bbbd8c66673378e
+secretAPI: b145ef8bb03cb92cbcdfe580ac17a702
