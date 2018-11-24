@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+<title>ArtistInfo</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+</head>
+<body>
+
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+    var url='http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&format=json&api_key=c46749239cc8ed007bbbd8c66673378e&autocorrect[1]&artist=';
+    var query;
+    $('button').click(function(){
+
+        query=$("#query").val();
+
+
+        $.getJSON(url+query,function(json){
+ console.log(json);
+            $("#results").append('<p>Name: '+json.artist.name+'</p>');
+            $("#results").append('<p>Bio: '+json.artist.bio.summary+'</p>');
+           $("#results").append('<p>'+'<img src="'+json.artist.image[4]["#text"]+ '"  />'+'</p>');
+
+        });
+    });
+});
+</script>
+
+<script type="text/javascript">
+    function reloadPage(){
+        location.reload(true);
+    }
+</script>
+
+<!-- http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&artist=cher&api_key=YOUR_API_KEY&format=json -->
+
+</head>
+
+<body>
+<input type="text" onfocus="this.value=''" id="query" placeholder="Wpisz wykonawce">
+<button>Szukaj</button>
+<div id="results"></div>
+</body>
+</html>
+
+
