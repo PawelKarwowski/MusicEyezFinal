@@ -26,6 +26,7 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 <link rel="stylesheet" href="addons/font-awesome-4.7.0/css/font-awesome.min.css">
 <script src="addons/jquery/jquery-3.3.1.js"></script>
 <script src="addons/jquery/jquery-1.11.1.min.js"></script>
+<script src="js/search.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
@@ -33,7 +34,7 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 </head>
 <body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-<script src="js/search.js"></script>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -144,13 +145,20 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 
 <hr class="light" style="width:100%;">
 <div class="input-container">
-<form method="POST">
+
+
+
 	<input id="readme" name="search" onfocus="this.value=''" class="input" placeholder="Insert artist name">
-    <input type="submit"  onClick="search()" value="Search" class="btnsearch">
-    <input class="refresh-button" type="button" value="Refresh Page" onClick="window.location.reload()">
-</form>
+    <input type="submit" onClick="search()" value="Search" class="btnsearch">
+
+<!--<form method="POST">
+</form> -->
+
+
+
 </div>
 <hr class="light" style="width:100%;">
+
 <?php 
 require_once"youtube.php";
 ?>

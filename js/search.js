@@ -1,18 +1,21 @@
- function search(){
-            
-       var value = document.getElementById('readme').value;
-       var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          
+function search(){       
+
+    var value = document.getElementById('readme').value;  
+
+
+    var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          
        
-
-       $.getJSON(url,function(json){ 
-
-         document.getElementById('heading').innerHTML = "TOP 3 ALBUMS";
-
+    $.getJSON(url,function(json){ 
+    document.getElementById('heading').innerHTML = "TOP 3 ALBUMS";
                
     /* Obrazki okładek */
-    $("#result0").append('<p>'+'<img class="miniature" src="'+json.topalbums.album[0].image[3]["#text"]+ '"  />'+'</p>');
-    $("#result1").append('<p>'+'<img class="miniature" src="'+json.topalbums.album[1].image[3]["#text"]+ '"  />'+'</p>');
-    $("#result2").append('<p>'+'<img class="miniature" src="'+json.topalbums.album[2].image[3]["#text"]+ '"  />'+'</p>');
+    var img1 = json.topalbums.album[0].image[3]["#text"];
+    var img2 = json.topalbums.album[1].image[3]["#text"];
+    var img3 = json.topalbums.album[2].image[3]["#text"];
+
+    $("#result0").attr('src', img1);
+    $("#result1").attr('src', img2);
+    $("#result2").attr('src', img3);
     
 
     /* URL */   
@@ -38,17 +41,14 @@
     $("#name2").attr('h1', nameofalbum2).text(nameofalbum2);
 
 
-
    }); 
        /* Info o zespole i zdjęcie główne */
         var url1="http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&format=json&api_key=c46749239cc8ed007bbbd8c66673378e&artist=" + value;
 
         $.getJSON(url1,function(json){          
 
-            $("#info").append(json.artist.bio.summary);
-            $("#info-img").append('<img class="info-img" src="'+ json.artist.image[5]["#text"]+ '" >');    
-        });   
+            $("#info").attr('h1', json.artist.bio.summary).text(json.artist.bio.summary);
+            $("#info-img").attr('src', json.artist.image[5]["#text"]);    
+        });  
+
 }
-
-
-
