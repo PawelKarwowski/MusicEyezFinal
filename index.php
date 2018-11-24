@@ -62,7 +62,7 @@ require_once "config.php";
               <a class="nav-link active" href="index.php">Home</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="search.php">Wyszukiwarka</a>
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Wyszukiwarka</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="#kontakt">Kontakt</a>
@@ -131,8 +131,8 @@ require_once "config.php";
 		<div class="carousel-caption">
 			<h1 class="dispaly-2">MusicEyez</h1>
 			<h2>najlepsza darmowa wyszukiwarka Twojej ulubionej muzyki</h2>
-			<button type="button" class="btn btn-outline-light btn-lg" style="padding: 15px 32px;">Wyszukaj</button>
-			<button type="button" class="btn btn-success btn-lg" style="padding: 15px 32px;">Dołącz!</button>
+			<input type="button" value="Wyszukaj" class="btn btn-outline-light btn-lg" style="padding: 15px 32px;" data-toggle="modal" data-target="#myModal" />
+			<input type="button" onclick="location.href='reg.php';" value="Dołącz" class="btn btn-success btn-lg" style="padding: 15px 32px;" />
 		</div>	
 	</div>
 	<div class="carousel-item">
@@ -143,6 +143,30 @@ require_once "config.php";
 	</div>
 </div>
 </div>
+
+<div class="modal" id="myModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">Komunikat</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+          Aby korzystać z wyszukiwarki należy się zalogować.
+        </div>
+        
+        <!-- Modal footer -->
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 
 
 <!--- Jumbotron -->
