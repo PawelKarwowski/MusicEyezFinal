@@ -43,7 +43,7 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <a class="nav-link active" href="index.php">Home</a>
+              <a class="nav-link active" href="index.php">Strona główna</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="search.php">Wyszukiwarka</a>
@@ -113,14 +113,13 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
              </li>
              <li class="divider"></li>
              <li>
-             	
+              
                  <div class="navbar-login navbar-login-session">
-                     <div class="row">
-                         <div class="logoff col-lg-6">
-                             <p>
-                                 <a href="logout.php" class="btn btn-danger btn-lg align-middle">Wyloguj się</a>
-                             </p>
-                         
+                     <div>
+                         <div class="logoff">                             
+                              <div class="logout-button">
+                                 <a href="logout.php" class="btn btn-danger btn-lg btn-block">Wyloguj się</a>
+                              </div>                           
                          </div>
                      </div>
                  </div>
@@ -130,8 +129,6 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
             </ul>
   </div>
 </div>
-
-
 </nav>
 
 
@@ -150,8 +147,7 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 		<div class="carousel-caption">
 			<h1 class="dispaly-2">MusicEyez</h1>
 			<h2>najlepsza darmowa wyszukiwarka Twojej ulubionej muzyki</h2>
-			<button type="button" class="btn btn-outline-light btn-lg" style="padding: 15px 32px;">Wyszukaj</button>
-			<button type="button" class="btn btn-success btn-lg" style="padding: 15px 32px;">Dołącz!</button>
+			<input type="button" value="Wyszukaj" class="btn btn-success btn-lg" onclick="location.href='search.php';" style="padding: 15px 32px;" data-toggle="modal" data-target="#myModal" />
 		</div>	
 	</div>
 	<div class="carousel-item">
@@ -166,10 +162,8 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 
 <!--- Jumbotron -->
 <div class="container-fluid">
-<div class="row jmbcolor">
-	<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 hero_heading text-center">
-		<p>Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.</p>
-	</div>
+	<div class="hero_heading text-center jmbcolor">
+		Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.
 	</div>
 </div>
 

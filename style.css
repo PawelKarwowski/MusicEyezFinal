@@ -20,7 +20,6 @@ html, body {
   font-size: 1.7em;
 }
 
-
 .carousel-inner img{
   width:100%;
   height:100%;
@@ -62,13 +61,13 @@ html, body {
     background-color:rgba(255,255,255,.8);
     border-radius: 10px;
     font-size: 12px;
-    color: white;
+    color: black;
 }
 #login-dp .help-block{
     font-size:12px    
 }
 #login-dp .bottom{
-    background-color: #5d656f;
+    background-color: transparent;
     border-top:1px solid #fff;
     clear:both;
     padding:10px;
@@ -96,7 +95,15 @@ html, body {
 }
 .btn-tw:hover{
     color: #fff;
-    background-color:#59b5fa;
+    background-color:#59b5fa; 
+}
+.logout-button
+{
+  text-align: center;
+}
+.logout-button a
+{
+  text-align: center;
 }
 /* ----Register---- */
 
@@ -106,7 +113,6 @@ html, body {
     text-align: right;
   }
   .info-img {
-  border: 1px solid #ccc;
     border-radius: 8%;
     padding: 5px;
     background-color: transparent;
@@ -114,7 +120,7 @@ html, body {
   }
 
 .fa-at, .fa-key, .fa-repeat{
-  color: #00b300;
+  color: #6ec071;
   font-size: 1rem;
 }
 
@@ -122,10 +128,9 @@ html, body {
 .jmbcolor{  
   background-color: #1a1a1a;
    font-size: 18px; 
-   color: white;
+   color: #6ec071;
    font-family: 'Poppins', sans-serif;
-   margin: 20px 20px 20px 20px;
-   padding: 30px 20px 50px 20px;
+   margin: 2%;   
 }
 
 
@@ -340,34 +345,29 @@ Extra (xl) large devices (large desktops, 1200px and up)
  .bioinfo{
 color: white;
 width:100%;
+padding: 1.1%;
 } 
 
 .bioinfo table {
   width: 100%;
-
 }
 
 
 .info-img {
-  border: 1px solid #ccc;
-    border-radius: 8%;
-    padding: 5px;
-    background-color: transparent;
     display: block;
     margin-left: auto;
-    margin-right: auto
+    margin-right: auto;
+    padding: 5px;
+    border-radius: 8%;
 } 
 
-.miniature {
-  display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 100%;   
+.miniature {  
     border-radius: 8%;
+    opacity: 30%;
 }
 
 .albumName {
-   color: #000;
+  color: 000;
   font-size: 20px;
   text-align: center;
 
@@ -376,6 +376,7 @@ width:100%;
  .album-info {
   text-align: center;
   width:100%;
+
  }
 
  .heading_style {
@@ -432,26 +433,10 @@ width:100%;
 .contrainer-link{
   color: white;
   font-size: 13px;
-  text-align:center;
-  display:block;
 }
 
 .gal-header{
-  color: white;
+  color: #6ec071;
   text-align: center;
-}
 
-.refresh-button {
-    background-color: transparent;
-    color: black;
-    border: 2px solid #555555;
-    padding: 8px 16px;
-    border-radius: 20px;
-    color: white;
-    font-size: 13px;
 }
-
-.refresh-button:hover {
-    background-color: #555555;
-    color: white;
-  }

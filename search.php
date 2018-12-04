@@ -1,4 +1,6 @@
 <?php 
+//Turn off notifications
+error_reporting(E_ALL ^ E_NOTICE);
 //session_start();
 if(!session_id()) {
     session_start();
@@ -10,10 +12,8 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
     }
 ?>
 
-<?php
-// Turn off all error reporting
-//error_reporting(E_ALL ^ E_NOTICE);
-?>
+
+
 
 
 <!DOCTYPE html>
@@ -52,7 +52,7 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <a class="nav-link active" href="index.php">Home</a>
+              <a class="nav-link active" href="index.php">Strona główna</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="search.php">Wyszukiwarka</a>
@@ -125,12 +125,11 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
              <li>
               
                  <div class="navbar-login navbar-login-session">
-                     <div class="row">
-                         <div class="logoff col-lg-6">
-                             <p>
-                                 <a href="logout.php" class="btn btn-danger btn-lg align-middle">Wyloguj się</a>
-                             </p>
-                         
+                     <div>
+                         <div class="logoff">                             
+                              <div class="logout-button">
+                                 <a href="logout.php" class="btn btn-danger btn-lg btn-block">Wyloguj się</a>
+                              </div>                           
                          </div>
                      </div>
                  </div>
@@ -145,12 +144,10 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 
 <!-- Input & Search -->
 
-<hr class="light" style="width:100%;">
-<div class="input-container">
-
+<div class="input-container" style="margin-top: 0.5%">
 <form method="POST">
 	<input id="readme" name="search" onfocus="this.value=''" class="input" placeholder="Insert artist name">
-  <input type="submit"  value="Search" class="btnsearch">
+  <input type="submit"  value="Search" class="btnsearch" onclick="myFunction()">
 </form>
 
 <script type="text/javascript">
@@ -158,15 +155,12 @@ var value = "<?php echo $_POST['search'] ?>";
 var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          
        
        $.getJSON(url,function(json){ 
-
-       document.getElementById('heading').innerHTML = "TOP 3 ALBUMS";
                   
        /* Obrazki okładek */
        var img1 = json.topalbums.album[0].image[3]["#text"];
        var img2 = json.topalbums.album[1].image[3]["#text"];
        var img3 = json.topalbums.album[2].image[3]["#text"];
        
-        console.log(img1);
        $("#result0").attr('src', img1);
        $("#result1").attr('src', img2);
        $("#result2").attr('src', img3);
@@ -199,16 +193,16 @@ var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&ap
           /* Info o zespole i zdjęcie główne */
            var url1="http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&format=json&api_key=c46749239cc8ed007bbbd8c66673378e&artist=" + value;
    
-           $.getJSON(url1,function(json){          
-   
-               $("#info").attr('p', json.artist.bio.summary).text(json.artist.bio.summary);
-               $("#info-img").attr('src', json.artist.image[5]["#text"]);    
+           $.getJSON(url1,function(json){ 
+
+              $("#band_name").attr('p', json.artist.name).text(json.artist.name);
+              $("#info").attr('p', json.artist.bio.summary).html(json.artist.bio.summary);
+              $("#info-img").attr('src', json.artist.image[5]["#text"]);    
+
            });  
 </script>
-
-
 </div>
-<hr class="light" style="width:100%;">
+
 
 <?php 
 require_once"youtube.php";
@@ -216,51 +210,49 @@ require_once"youtube.php";
 
 <!-- Artist Info -->
 
-<div class="bioinfo">  
-<table>    
-  <div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 text-center">   
-      <p id="info" style="font-size: medium;"></p>  
-      </div>   
-</table>
 
+<div class="bioinfo container">
+<div>
+ <p id="band_name" style="font-size: x-large; text-align: center; color: #4CAF50"></p>
+</div>  
+  <div class="text-center">   
+    <p id="info" style="font-size: large;"></p>  
+  </div>
+</div>
+
+</div>
+<div class="container" style="margin-bottom: 1.2%">
 <img id="info-img" class ="info-img">
-
 </div>
 
-<!-- Heading -->
 
-<div class="album-info">  
-  <p id="heading" class="heading_style"></p>  
-</div>
 
 <!-- Gallery -->
-<!-- TUUUUUUUUUUUUTAJ TESTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTT-->
 
-
-<div class="container">
+<div class="container" style="margin-bottom: 1.2%">
     <div class="row">
-        <div class="col-md-4 col-lg-4 col-sm-6 img_space ">
+        <div class="col-md-4 col-lg-4 col-sm-6">
           <h1 id="name0" class="gal-header"></h1>
-         <img class="img-responsive" id="result0">
+         <img class="img-responsive miniature" id="result0">
          <a id="link0" class="contrainer-link"></a>
        </div>
   
-        <div class="col-md-4 col-lg-4 col-sm-6 img_space">
+        <div class="col-md-4 col-lg-4 col-sm-6">
           <h1 id="name1" class="gal-header"></h1>
-          <img class="img-responsive" id="result1">
+          <img class="img-responsive miniature" id="result1">
           <a id="link1" class="contrainer-link"></a>
         </div>
 
-        <div class="col-md-4 col-lg-4 col-sm-6 img_space">
+        <div class="col-md-4 col-lg-4 col-sm-6 img">
           <h1 id="name2" class="gal-header"></h1>
-          <img class="img-responsive" id="result2">
+          <img class="img-responsive miniature" id="result2">
           <a id="link2" class="contrainer-link"></a>
         </div>      
     </div>
 </div>
 
 
-<div class="col-md-1 col-md-offset-4">
+<div class="container text-center">
 <?php 
     if(isset($_POST['search']))
     {
@@ -270,7 +262,9 @@ require_once"youtube.php";
 
 ?>
 </div>
- <!-- <p style="color:white; text-align: center; font-size: 8px">Created by Paweł Karwowski & Mikołaj Życzyński</p> -->
 
+<div class="container text-center">
+ <p style="color:white; text-align: center; font-size: 13px">Created by Paweł Karwowski & Mikołaj Życzyński</p>
+</div>
 </body>
 </html>

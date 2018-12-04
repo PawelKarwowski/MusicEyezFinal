@@ -59,7 +59,7 @@ require_once "config.php";
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <a class="nav-link active" href="index.php">Home</a>
+              <a class="nav-link active" href="index.php">Strona główna</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Wyszukiwarka</a>
@@ -171,12 +171,10 @@ require_once "config.php";
 
 <!--- Jumbotron -->
 <div class="container-fluid">
-<div class="row jmbcolor">
-	<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 hero_heading text-center">
-		<p>Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.</p>
+	<div class="hero_heading text-center jmbcolor">
+		Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.
 	</div>
-	</div>
-</div>
+</div
 
 
 

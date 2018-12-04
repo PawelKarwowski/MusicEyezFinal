@@ -85,7 +85,7 @@ if (isset($search)) {
       }
     }
 
-    $_SESSION['video']= '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$searchResult['id']['videoId'].'"'.' ".frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    $_SESSION['video']= '<iframe width="700" height="400" src="https://www.youtube.com/embed/'.$searchResult['id']['videoId'].'"'.' ".frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     //$video2 = '<div class="youtube-player" data-id="'.$searchResult['id']['videoId'].'"'.'></div>';
     //$_SESSION['video']=$video = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$searchResult['id']['videoId'].'"'.' ".frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
   
