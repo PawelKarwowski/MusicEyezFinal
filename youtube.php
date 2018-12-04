@@ -31,8 +31,20 @@ require_once __DIR__ . '/vendor/youtube/autoload.php';
 
 // This code will execute if the user entered a search query in the form
 // and submitted the form. Otherwise, the page displays the form above.
-$search=$_POST['search'];
-echo $search;
+$search=null;
+$searchold = null;
+
+if(!isset($_POST['search']))
+{
+
+}else{  
+  $search=$_POST['search'];
+}
+
+
+
+//$search=$_POST['search'];
+//echo $search;
 $howMuch=rand(1,5);
 $maxResults = $howMuch;
 if (isset($search)) {

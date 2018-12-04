@@ -8,8 +8,11 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 	{
 		header('Location: index.php');
     }
-    
+?>
 
+<?php
+// Turn off all error reporting
+//error_reporting(E_ALL ^ E_NOTICE);
 ?>
 
 
@@ -33,7 +36,7 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 </head>
 <body>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.4/jquery.min.js"></script>
-
+<script type="text/javascript" src="js/search.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -147,26 +150,23 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 
 <form method="POST">
 	<input id="readme" name="search" onfocus="this.value=''" class="input" placeholder="Insert artist name">
-    <input type="submit"  value="Search" class="btnsearch">
+  <input type="submit"  value="Search" class="btnsearch">
 </form>
-
-<?php //unset($_POST['search']); ?>
 
 <script type="text/javascript">
 var value = "<?php echo $_POST['search'] ?>";
-console.log(value);
-
-
 var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          
        
        $.getJSON(url,function(json){ 
+
        document.getElementById('heading').innerHTML = "TOP 3 ALBUMS";
                   
        /* Obrazki okładek */
        var img1 = json.topalbums.album[0].image[3]["#text"];
        var img2 = json.topalbums.album[1].image[3]["#text"];
        var img3 = json.topalbums.album[2].image[3]["#text"];
-   
+       
+        console.log(img1);
        $("#result0").attr('src', img1);
        $("#result1").attr('src', img2);
        $("#result2").attr('src', img3);
@@ -201,12 +201,11 @@ var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&ap
    
            $.getJSON(url1,function(json){          
    
-               $("#info").attr('h1', json.artist.bio.summary).text(json.artist.bio.summary);
+               $("#info").attr('p', json.artist.bio.summary).text(json.artist.bio.summary);
                $("#info-img").attr('src', json.artist.image[5]["#text"]);    
            });  
-
-
 </script>
+
 
 </div>
 <hr class="light" style="width:100%;">
@@ -224,14 +223,14 @@ require_once"youtube.php";
       </div>   
 </table>
 
-<img id="info-img">
+<img id="info-img" class ="info-img">
 
 </div>
 
 <!-- Heading -->
 
-<div class="album-info">	
-	<p id="heading" class="heading_style"></p>	
+<div class="album-info">  
+  <p id="heading" class="heading_style"></p>  
 </div>
 
 <!-- Gallery -->
@@ -260,15 +259,18 @@ require_once"youtube.php";
     </div>
 </div>
 
-<div class="row">
+
 <div class="col-md-1 col-md-offset-4">
 <?php 
-    echo $_SESSION['video'];
+    if(isset($_POST['search']))
+    {
+        echo $_SESSION['video'];
+    }
+    else{ }
+
 ?>
 </div>
-</div>
+ <!-- <p style="color:white; text-align: center; font-size: 8px">Created by Paweł Karwowski & Mikołaj Życzyński</p> -->
 
-
- <p style="color:white; text-align: center; font-size: 8px">Created by Paweł Karwowski & Mikołaj Życzyński</p>
 </body>
 </html>

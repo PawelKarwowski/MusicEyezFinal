@@ -339,11 +339,12 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
  .bioinfo{
 color: white;
-width:100%;  
+width:100%;
 } 
 
 .bioinfo table {
   width: 100%;
+
 }
 
 
@@ -361,8 +362,7 @@ width:100%;
   display: block;
     margin-left: auto;
     margin-right: auto;
-    max-width: 100%;
-    opacity: 0.7;    
+    max-width: 100%;   
     border-radius: 8%;
 }
 
@@ -455,6 +455,3 @@ width:100%;
     background-color: #555555;
     color: white;
   }
-
-
-
