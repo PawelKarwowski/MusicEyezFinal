@@ -59,7 +59,7 @@ html, body {
     min-width: 250px;
     padding: 14px 10px 10px;
     overflow:hidden;
-    background-color:#5d656f;
+    background-color:rgba(255,255,255,.8);
     border-radius: 10px;
     font-size: 12px;
     color: white;

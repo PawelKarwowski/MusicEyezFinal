@@ -1,6 +1,11 @@
 function search(){       
+    
+    //var readme = "<?php echo $readme; ?>";
+    var value1 = "<?php echo $search; ?>";
 
-    var value = document.getElementById('readme').value;  
+    
+    //var value = document.getElementById('readme').value;  
+    //console.log(value);
 
 
     var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          

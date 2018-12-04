@@ -26,7 +26,6 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 <link rel="stylesheet" href="addons/font-awesome-4.7.0/css/font-awesome.min.css">
 <script src="addons/jquery/jquery-3.3.1.js"></script>
 <script src="addons/jquery/jquery-1.11.1.min.js"></script>
-<script src="js/search.js"></script>
 <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <link rel='stylesheet prefetch' href='https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css'>
@@ -63,7 +62,7 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
          <li class="nav-link dropdown">
          <ul class="navbar-nav">
             <li class="dropdown">                
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 200px; 
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false" style="margin-right: 130px; 
              color: #57B846">
              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
              <i class="fa fa-user-circle-o" aria-hidden="true"></i>
@@ -146,15 +145,68 @@ if((!isset($_SESSION['logged-in']))&&($_SESSION['logged-in']==false)&&(!isset($_
 <hr class="light" style="width:100%;">
 <div class="input-container">
 
-
-
+<form method="POST">
 	<input id="readme" name="search" onfocus="this.value=''" class="input" placeholder="Insert artist name">
-    <input type="submit" onClick="search()" value="Search" class="btnsearch">
+    <input type="submit"  value="Search" class="btnsearch">
+</form>
 
-<!--<form method="POST">
-</form> -->
+<?php //unset($_POST['search']); ?>
+
+<script type="text/javascript">
+var value = "<?php echo $_POST['search'] ?>";
+console.log(value);
 
 
+var url="http://ws.audioscrobbler.com/2.0/?method=artist.gettopalbums&limit=3&api_key=c46749239cc8ed007bbbd8c66673378e&format=json&artist=" + value;          
+       
+       $.getJSON(url,function(json){ 
+       document.getElementById('heading').innerHTML = "TOP 3 ALBUMS";
+                  
+       /* Obrazki okładek */
+       var img1 = json.topalbums.album[0].image[3]["#text"];
+       var img2 = json.topalbums.album[1].image[3]["#text"];
+       var img3 = json.topalbums.album[2].image[3]["#text"];
+   
+       $("#result0").attr('src', img1);
+       $("#result1").attr('src', img2);
+       $("#result2").attr('src', img3);
+       
+   
+       /* URL */   
+        var strLink0 = (json.topalbums.album[0].url);
+        var strLink1 = (json.topalbums.album[1].url);
+        var strLink2 = (json.topalbums.album[2].url);
+   
+       /* $("#link0").attr('href',strLink0).text(strLink); */ /* Pokazuje pełny link */
+       /*$("#link1").attr('href',strLink1); */ /*Ukrywa link, zeby można było dodać tekst <a> XXX </a>*/
+      
+   
+       $("#link0").attr('href',strLink0).text(strLink0);
+       $("#link1").attr('href',strLink1).text(strLink1);
+       $("#link2").attr('href',strLink2).text(strLink2);
+   
+       /* Nazwy albumów, które wyświetlam nad ich okładkami */
+       var nameofalbum0 = (json.topalbums.album[0].name);
+       var nameofalbum1 = (json.topalbums.album[1].name);
+       var nameofalbum2 = (json.topalbums.album[2].name);
+   
+       $("#name0").attr('h1', nameofalbum0).text(nameofalbum0);
+       $("#name1").attr('h1', nameofalbum1).text(nameofalbum1);
+       $("#name2").attr('h1', nameofalbum2).text(nameofalbum2);
+   
+   
+      }); 
+          /* Info o zespole i zdjęcie główne */
+           var url1="http://ws.audioscrobbler.com/2.0/?method=artist.getinfo&format=json&api_key=c46749239cc8ed007bbbd8c66673378e&artist=" + value;
+   
+           $.getJSON(url1,function(json){          
+   
+               $("#info").attr('h1', json.artist.bio.summary).text(json.artist.bio.summary);
+               $("#info-img").attr('src', json.artist.image[5]["#text"]);    
+           });  
+
+
+</script>
 
 </div>
 <hr class="light" style="width:100%;">
@@ -208,10 +260,12 @@ require_once"youtube.php";
     </div>
 </div>
 
-<div class="container">
+<div class="row">
+<div class="col-md-1 col-md-offset-4">
 <?php 
     echo $_SESSION['video'];
 ?>
+</div>
 </div>
 
 
