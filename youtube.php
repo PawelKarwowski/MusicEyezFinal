@@ -31,8 +31,20 @@ require_once __DIR__ . '/vendor/youtube/autoload.php';
 
 // This code will execute if the user entered a search query in the form
 // and submitted the form. Otherwise, the page displays the form above.
-$search=$_POST['search'];
-echo $search;
+$search=null;
+$searchold = null;
+
+if(!isset($_POST['search']))
+{
+
+}else{  
+  $search=$_POST['search'];
+}
+
+
+
+//$search=$_POST['search'];
+//echo $search;
 $howMuch=rand(1,5);
 $maxResults = $howMuch;
 if (isset($search)) {
@@ -73,7 +85,7 @@ if (isset($search)) {
       }
     }
 
-    $_SESSION['video']= '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$searchResult['id']['videoId'].'"'.' ".frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
+    $_SESSION['video']= '<iframe width="700" height="400" src="https://www.youtube.com/embed/'.$searchResult['id']['videoId'].'"'.' ".frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
     //$video2 = '<div class="youtube-player" data-id="'.$searchResult['id']['videoId'].'"'.'></div>';
     //$_SESSION['video']=$video = '<iframe width="560" height="315" src="https://www.youtube.com/embed/'.$searchResult['id']['videoId'].'"'.' ".frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>';
   

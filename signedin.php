@@ -36,20 +36,20 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 <!-- Navigation --> 
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><img src="img/TEST/logo.jpg"></a>
+  <a class="navbar-brand" href="index.php"><img src="img/TEST/logo.jpg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <a class="nav-link active" href="index.php">Home</a>
+              <a class="nav-link active" href="index.php">Strona główna</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="search.php">Wyszukiwarka</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link" href="#">Kontakt</a>
+              <a class="nav-link" href="#kontakt">Kontakt</a>
           </li>
       </ul>
       <ul class="navbar-nav">
@@ -113,14 +113,13 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
              </li>
              <li class="divider"></li>
              <li>
-             	
+              
                  <div class="navbar-login navbar-login-session">
-                     <div class="row">
-                         <div class="logoff col-lg-6">
-                             <p>
-                                 <a href="logout.php" class="btn btn-danger btn-lg align-middle">Wyloguj się</a>
-                             </p>
-                         
+                     <div>
+                         <div class="logoff">                             
+                              <div class="logout-button">
+                                 <a href="logout.php" class="btn btn-danger btn-lg btn-block">Wyloguj się</a>
+                              </div>                           
                          </div>
                      </div>
                  </div>
@@ -130,8 +129,6 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
             </ul>
   </div>
 </div>
-
-
 </nav>
 
 
@@ -150,8 +147,7 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 		<div class="carousel-caption">
 			<h1 class="dispaly-2">MusicEyez</h1>
 			<h2>najlepsza darmowa wyszukiwarka Twojej ulubionej muzyki</h2>
-			<button type="button" class="btn btn-outline-light btn-lg" style="padding: 15px 32px;">Wyszukaj</button>
-			<button type="button" class="btn btn-success btn-lg" style="padding: 15px 32px;">Dołącz!</button>
+			<input type="button" value="Wyszukaj" class="btn btn-success btn-lg" onclick="location.href='search.php';" style="padding: 15px 32px;" data-toggle="modal" data-target="#myModal" />
 		</div>	
 	</div>
 	<div class="carousel-item">
@@ -166,10 +162,8 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 
 <!--- Jumbotron -->
 <div class="container-fluid">
-<div class="row jmbcolor">
-	<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 hero_heading text-center">
-		<p>Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.</p>
-	</div>
+	<div class="hero_heading text-center jmbcolor">
+		Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.
 	</div>
 </div>
 
@@ -238,7 +232,7 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 
 <!--- Footer -->
 <footer style="font-size: 15px;">
-	<div class="container-fluid">
+	<div class="container-fluid" id="kontakt">
 	<div class="row text-center">
 		<hr class="light-100">
 		<div class="col-md-4">
@@ -247,13 +241,13 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 			<hr class="light">
 			<ul>
 				<li>tel: 7981568</li>				
-				<li>e-mail: xxx@gmail.com</li>
+				<li>e-mail: najepszagrupaair@gmail.com</li>
 				<li>Miasto: Gdańsk</li>
 			</ul>
 		</div>
 		<div class="col-md-4">
 			
-			<h5>Godziny otwarcia</h5>
+			<h5>Dzień Tygodnia</h5>
 			<hr class="light">
 			<p>Poniedziałek</p>
 			<p>Wtorek</p>
@@ -263,15 +257,17 @@ if((!isset($_SESSION['logged-in']))&&(!isset($_SESSION['access_token'])))
 		</div>
 		<div class="col-md-4">
 			
-			<h5>Coś tam</h5>
+			<h5>Godziny otwarcia</h5>
 			<hr class="light">
-			<p>Jeden</p>
-			<p>Dwa</p>
-			<p>Trzy</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
 		</div>
 		<div class="col-12">
 			<hr class="light-100">
-			<h5>&copy; musiceyez.com</h5>
+			<h5>&copy; musiceyez </h5>
 	</div>
 	</div>	
 </footer>

@@ -52,14 +52,14 @@ require_once "config.php";
 
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><img src="img/TEST/logo.jpg"></a>
+  <a class="navbar-brand" href="index.php"><img src="img/TEST/logo.jpg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
           <li class="nav-item">
-              <a class="nav-link active" href="index.php">Home</a>
+              <a class="nav-link active" href="index.php">Strona główna</a>
           </li>
           <li class="nav-item">
               <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Wyszukiwarka</a>
@@ -171,12 +171,10 @@ require_once "config.php";
 
 <!--- Jumbotron -->
 <div class="container-fluid">
-<div class="row jmbcolor">
-	<div class="col-xs-12 col-sm-12 col-md-9 col-lg-9 col-xl-10 hero_heading text-center">
-		<p>Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.</p>
+	<div class="hero_heading text-center jmbcolor">
+		Powiedz, powiedz czemu Świat twój milczy cały blady od wzruszeń Niczym słońce zaćmione przez księżyc Czekające na chwile poruszeń. Powiedz, czemu pragniesz Dojrzeć w oknach świata część odległą Niczym drzewo więdnące bez skargi Czekające na deszcze z nadzieją.
 	</div>
-	</div>
-</div>
+</div
 
 
 
@@ -253,13 +251,13 @@ require_once "config.php";
 			<hr class="light">
 			<ul>
 				<li>tel: 7981568</li>				
-				<li>e-mail: xxx@gmail.com</li>
+				<li>e-mail: najepszagrupaair@gmail.com</li>
 				<li>Miasto: Gdańsk</li>
 			</ul>
 		</div>
 		<div class="col-md-4">
 			
-			<h5>Godziny otwarcia</h5>
+			<h5>Dzień Tygodnia</h5>
 			<hr class="light">
 			<p>Poniedziałek</p>
 			<p>Wtorek</p>
@@ -269,15 +267,17 @@ require_once "config.php";
 		</div>
 		<div class="col-md-4">
 			
-			<h5>Coś tam</h5>
+			<h5>Godziny otwarcia</h5>
 			<hr class="light">
-			<p>Jeden</p>
-			<p>Dwa</p>
-			<p>Trzy</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
 		</div>
 		<div class="col-12">
 			<hr class="light-100">
-			<h5>&copy; musiceyez.com</h5>
+			<h5>&copy; musiceyez </h5>
 	</div>
 	</div>	
 </footer>
