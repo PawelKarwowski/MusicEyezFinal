@@ -52,7 +52,7 @@ require_once "config.php";
 
 
  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <a class="navbar-brand" href="#"><img src="img/TEST/logo.jpg"></a>
+  <a class="navbar-brand" href="index.php"><img src="img/TEST/logo.jpg"></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -251,13 +251,13 @@ require_once "config.php";
 			<hr class="light">
 			<ul>
 				<li>tel: 7981568</li>				
-				<li>e-mail: xxx@gmail.com</li>
+				<li>e-mail: najepszagrupaair@gmail.com</li>
 				<li>Miasto: Gdańsk</li>
 			</ul>
 		</div>
 		<div class="col-md-4">
 			
-			<h5>Godziny otwarcia</h5>
+			<h5>Dzień Tygodnia</h5>
 			<hr class="light">
 			<p>Poniedziałek</p>
 			<p>Wtorek</p>
@@ -267,15 +267,17 @@ require_once "config.php";
 		</div>
 		<div class="col-md-4">
 			
-			<h5>Coś tam</h5>
+			<h5>Godziny otwarcia</h5>
 			<hr class="light">
-			<p>Jeden</p>
-			<p>Dwa</p>
-			<p>Trzy</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
+			<p>8:00 - 16:00</p>
 		</div>
 		<div class="col-12">
 			<hr class="light-100">
-			<h5>&copy; musiceyez.com</h5>
+			<h5>&copy; musiceyez </h5>
 	</div>
 	</div>	
 </footer>
